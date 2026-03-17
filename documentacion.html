@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
+    <script src="https://kit.fontawesome.com/549ad840bc.js" crossorigin="anonymous"></script>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
@@ -42,10 +43,27 @@
                 <span class="text-[9px] font-black uppercase mt-2 lg:hidden text-gray-300 group-hover:text-pwa-purple">Mensajes</span>
             </button>
 
-            <button class="flex flex-col items-center justify-center group lg:hidden">
+            <button class="flex flex-col items-center justify-center group lg:hidden" id="moreBtn" data-dropdown-toggle="dropdownMore">
                 <i class="fa-solid fa-circle-ellipsis text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
                 <span class="text-[9px] font-black uppercase mt-2 text-gray-300 group-hover:text-pwa-purple">Más</span>
             </button>
+
+            <div id="dropdownMore" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-[3rem] shadow-2xl w-64 mb-8 border border-gray-50 p-3">
+            <ul class="py-4 text-sm font-bold text-gray-700">
+                <li class="px-8 py-4 hover:bg-gray-50 rounded-2xl">
+                    <a href="votaciones.html" aria-label="Votaciones">Votaciones</a>
+                </li>
+                <li class="px-8 py-4 hover:bg-gray-50 rounded-2xl">
+                    <a href="reclamos.html" aria-label="Reclamos">Reclamos</a>
+                </li>
+                <li class="px-8 py-4 hover:bg-gray-50 rounded-2xl border-t border-gray-50 mt-2 pt-4">
+                    <a href="documentacion.html" aria-label="Documentación">Documentación</a>
+                </li>
+                <li class="px-8 py-4 hover:bg-gray-50 rounded-2xl">
+                    <a href="faqs.html"  aria-label="Preguntas frecuentas">Preguntas frecuentes</a>
+                </li>
+            </ul>
+        </div>
 
             <button aria-label="Votaciones" onclick="navigateTo('votaciones.html')" class="nav-tooltip hidden lg:flex flex-col items-center justify-center group" data-title="Votaciones">
                 <i class="fa-solid fa-check-to-slot text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
