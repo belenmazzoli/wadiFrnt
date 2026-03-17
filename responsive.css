@@ -1,0 +1,63 @@
+/* --- CONFIGURACIÓN DE TOOLTIPS Y ANIMACIÓN (PDF STYLE) --- */
+@media (min-width: 1024px) {
+    /* 1. Contenedor del botón relativo para que el tooltip sepa dónde pararse */
+    .nav-tooltip {
+        position: relative !important;
+        transition: all 0.3s ease;
+    }
+
+    /* 2. El Tooltip negro */
+    .nav-tooltip::after {
+        content: attr(data-title);
+        position: absolute;
+        /* Lo sacamos del flujo y lo ponemos a la derecha */
+        left: 100%; 
+        top: 50%;
+        transform: translateY(-50%) translateX(10px); /* Centrado vertical y un poco de aire a la derecha */
+        
+        background: #111827;
+        color: white;
+        padding: 7px 14px;
+        border-radius: 10px;
+        font-size: 10px;
+        font-weight: 900;
+        text-transform: uppercase;
+        white-space: nowrap;
+        letter-spacing: 0.05em;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+        
+        /* Estado inicial (oculto) */
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 100;
+    }
+
+    /* 3. Comportamiento al hacer HOVER */
+    .nav-tooltip:hover::after {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-50%) translateX(20px); /* Se desliza un poquito hacia afuera */
+    }
+
+    /* 4. Movimiento suave del ícono hacia arriba */
+    .nav-tooltip:hover i {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+    }
+
+    /* Aseguramos que el ícono tenga transición base para que no pegue el salto al volver */
+    .nav-tooltip i {
+        transition: transform 0.3s ease;
+    }
+
+    .bg-ticket {
+        background-image: url(ticket-bg-xlg.svg);
+    background-size: cover;
+    background-position: initial; 
+
+    }
+    .bg-ticket h2 {
+        margin-top: 40px;
+    }
+}

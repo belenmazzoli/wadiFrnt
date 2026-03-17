@@ -1,0 +1,137 @@
+/* Estilos personalizados para Wadi BC */
+
+:root {
+    --pwa-purple: #A855F7;
+    --bg-gray: #F3F4F6;
+    --gray-medium:#B6B6B6;
+    --gray-dark:#363636;
+}
+
+/* Ajuste de tipografía Inter para que sea más pesada como en el PDF */
+body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #373737;
+
+     opacity: 0;
+        transition: opacity 0.3s ease-out;
+        background-color: #F3F4F6; /* Color de fondo de tu app para evitar el flash blanco */
+}
+
+    /* Estado final: visible y en su posición original */
+    body.page-loaded {
+        opacity: 1;
+    }
+body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #F3F4F6; 
+        }
+        .bg-pwa-purple { background-color: #A855F7; }
+        .text-pwa-purple { color: #A855F7; }
+        .card-shadow { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); }
+/* Forzar el redondeo exacto de las tarjetas [cite: 1, 224, 232] */
+.custom-card {
+    border-radius: 40px !important; /* Ajustá este valor según veas en el PDF */
+}
+
+/* Estilo específico para los botones de acción [cite: 5, 7, 8] */
+.btn-primary-custom {
+    background-color: var(--pwa-purple);
+    border-radius: 24px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+/* Ajuste de la botonera inferior para que sea idéntica [cite: 22, 50, 52] */
+.bottom-nav-custom {
+    height: 90px;
+    padding-bottom: env(safe-area-inset-bottom); /* Fundamental para iPhone/PWA */
+}
+
+.color-purple {
+    color: #A855F7;
+}
+
+.bg-ticket {
+    background-image: url(ticket-bg.svg);
+    background-repeat: no-repeat;
+    /*background-size: cover;*/
+    background-position:bottom;
+}
+.pt-header-gap {
+    padding-top: 30px;
+}
+
+.bg-grayDark {
+    background-color: var(--gray-medium);
+}
+
+.badge-purple {
+    background-color: var(--pwa-purple);
+    border-radius: 100px;
+    color:white;
+}
+
+.badge-gray {
+    background-color: #f3f3f3;
+    border-radius: 100px;
+    font-weight: bold;
+    color:var(--pwa-purple);
+}
+.color-grayDark {
+    color: var(--gray-dark);
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+    
+    /* Máscara de scroll más sutil para no tapar el texto central */
+    .custom-scroll-mask {
+        mask-image: linear-gradient(to bottom, 
+            transparent 0%, 
+            black 15%, 
+            black 85%, 
+            transparent 100%
+        );
+        -webkit-mask-image: linear-gradient(to bottom, 
+            transparent 0%, 
+            black 15%, 
+            black 85%, 
+            transparent 100%
+        );
+    }
+
+    /* Estilo para el slot disponible: más contraste */
+    .slot-available {
+        background-color: #FFFFFF;
+        border: 1px solid #F3F4F6;
+        color: #1F2937; /* Gris oscuro para lectura clara */
+    }
+
+    /* Estilo para el slot seleccionado */
+    .slot-selected {
+        background-color: #FFFFFF;
+        border: 2.5px solid #A855F7;
+        box-shadow: 0 10px 15px -3px rgba(168, 85, 247, 0.1);
+    }
+
+    /* Evitamos que Flowbite oscurezca el botón al estar activo/abierto */
+button[aria-expanded="true"] {
+    background-color: #ffffff !important;
+    color: inherit !important;
+}
+
+/* Estilo para la tarjeta activa en el listado lateral */
+.bg-purple-50\/30 {
+    background-color: rgba(245, 243, 255, 0.5) !important; /* Un violeta muy sutil */
+    transition: all 0.3s ease;
+}
+
+#accordion-votaciones .bg-white {
+    border: 2px solid transparent; /* Reserva el espacio para que no "salte" al seleccionar */
+    transition: all 0.3s ease;
+}
+
+/* El borde violeta que marca la selección */
+.border-pwa-purple {
+    border-color: #A855F7 !important;
+}

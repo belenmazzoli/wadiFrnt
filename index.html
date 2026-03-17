@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wadi BC</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
+    
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body class="lg:flex lg:flex-row">
+
+    <nav class="fixed bottom-0 lg:top-0 lg:left-0 lg:h-full lg:w-[100px] left-0 z-50 w-full h-[90px] bg-white border-t lg:border-t-0 lg:border-r border-gray-100 pb-[env(safe-area-inset-bottom)] lg:pb-0 shadow-[0_-5px_20px_rgba(0,0,0,0.05)] lg:flex lg:flex-col lg:items-center lg:py-10">
+        <div class="grid h-full lg:h-auto w-full grid-cols-5 lg:grid-cols-1 lg:flex lg:flex-col lg:gap-10 max-w-md mx-auto">
+            <button onclick="navigateTo('index.html')" class="nav-tooltip flex flex-col items-center justify-center group" data-title="Novedades">
+                <i class="fa-solid fa-house text-xl text-pwa-purple"></i>
+                <span class="text-[9px] font-black uppercase mt-2 lg:hidden text-pwa-purple">Inicio</span>
+            </button>
+
+            <button onclick="navigateTo('mi_unidad.html')" class="nav-tooltip flex flex-col items-center justify-center group" data-title="Mi Unidad">
+                <i class="fa-solid fa-family text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
+                <span class="text-[9px] font-black uppercase mt-2 lg:hidden text-gray-300 group-hover:text-pwa-purple">Unidad</span>
+            </button>
+
+            <button onclick="navigateTo('mis_reservas.html')" class="nav-tooltip flex flex-col items-center justify-center group" data-title="Reservas">
+                <i class="fa-solid fa-calendar-check text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
+                <span class="text-[9px] font-black uppercase mt-2 lg:hidden text-gray-300 group-hover:text-pwa-purple">Reservas</span>
+            </button>
+
+            <button onclick="navigateTo('comunicaciones.html')" class="nav-tooltip flex flex-col items-center justify-center group" data-title="Comunicaciones">
+                <i class="fa-solid fa-mailbox text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
+                <span class="text-[9px] font-black uppercase mt-2 lg:hidden text-gray-300 group-hover:text-pwa-purple">Mensajes</span>
+            </button>
+
+            <button class="flex flex-col items-center justify-center group lg:hidden">
+                <i class="fa-solid fa-circle-ellipsis text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
+                <span class="text-[9px] font-black uppercase mt-2 text-gray-300 group-hover:text-pwa-purple">Más</span>
+            </button>
+
+            <button aria-label="Votaciones" onclick="navigateTo('votaciones.html')" class="nav-tooltip hidden lg:flex flex-col items-center justify-center group" data-title="Votaciones">
+                <i class="fa-solid fa-check-to-slot text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
+            </button>
+
+           
+             <button onclick="navigateTo('reclamos.html')" class="nav-tooltip hidden lg:flex flex-col items-center justify-center group" data-title="Reclamos"  aria-label="Reclamos">
+                <i class="fa-solid fa-comment-captions text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
+            </button>
+             <button onclick="navigateTo('documentacion.html')" class="nav-tooltip hidden lg:flex flex-col items-center justify-center group" data-title="Documentación" aria-label="Documentación">
+                <i class="fa-solid fa-file text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
+            </button>
+
+             <button onclick="navigateTo('faqs.html')" class="nav-tooltip hidden lg:flex flex-col items-center justify-center group" data-title="Preguntas Frecuentes" aria-label="Preguntas frecuentes">
+                <i class="fa-solid fa-circle-question text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="flex-1 lg:ml-[100px]">
+        
+        <header class="p-4 flex justify-between items-center max-w-md lg:max-w-6xl mx-auto  sticky top-0 bg-[#F3F4F6]/80 backdrop-blur-md z-40">
+            <div class="flex items-center gap-4">
+                <button data-dropdown-toggle="dropdownGuardia" aria-label="Contactos de la Guardia" class="bg-white p-3 rounded-2xl shadow-sm lg:hidden"><i class="fa-solid fa-shield-quartered text-pwa-purple"></i></button>
+                <div class="hidden lg:flex ">
+                    <button  data-dropdown-toggle="dropdownGuardia" class="lg:flex items-center gap-3">
+
+                    <i class="fa-solid fa-shield-quartered text-2xl text-pwa-purple"></i>
+                    <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Contactos guardia</span>
+                    </button>
+                </div>
+                 <div id="dropdownGuardia" class="z-10 hidden bg-white p-6 rounded-[2.5rem] shadow-2xl w-72 border border-gray-50">
+                    <ul class="py-3 text-sm ">
+                        <li class="px-6 py-3 hover:bg-gray-50 rounded-2xl">
+                            <a href="#" aria-label="Llamar a la guardia del barrio">0800-GUARDIA</a>
+                        </li>
+                        <li class="px-6 py-3 hover:bg-gray-50 rounded-2xl">
+                            <a href="#" aria-label="Comunicarme por whatsapp">WhatsApp</a>
+                        </li>
+                        
+                        <li class="px-6 py-3 hover:bg-gray-50 rounded-2xl">
+                            <a href="#" aria-label="Enviar un mail a la guardia">administracion@gmail.com</a>
+                        </li>
+                    </ul>
+                    <hr class="border-gray-100">
+                    <p class="text-xs text-gray-500 p-4 leading-relaxed text-center ">Horario tel: 6hs a 23hs<br>WhatsApp 24hs</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button id="loteBtn" data-dropdown-toggle="dropdownLote" class="bg-pwa-purple text-white px-5 py-2.5 rounded-full font-black text-[11px] shadow-lg shadow-purple-100 flex items-center gap-2">
+                    LT 128 <i class="fa-solid fa-chevron-down text-[8px]"></i>
+                </button>
+
+                <div id="dropdownLote" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-3xl shadow-2xl w-40 overflow-hidden border border-gray-50">
+                    <ul class="py-2 text-sm font-bold">
+                        <li class="px-5 py-3 hover:bg-gray-50 text-gray-400">LOT127</li>
+                        <li class="px-5 py-3 bg-pwa-purple text-white">LT128</li>
+                        <li class="px-5 py-3 hover:bg-gray-50 text-gray-400">LOT129</li>
+                    </ul>
+                </div>
+
+
+
+                <button data-dropdown-toggle="dropdownUser" aria-label="Información del usuario"class="text-pwa-purple bg-white p-2.5 rounded-full shadow-sm lg:flex lg:items-center lg:gap-3 lg:px-4">
+                    <i class="fa-solid fa-circle-user text-2xl"></i>
+                    <span class="hidden lg:block text-xs font-black text-gray-900 uppercase">C. Solana</span>
+                </button>
+                 <div id="dropdownUser" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-[2.5rem] shadow-2xl w-60 p-2 border border-gray-50">
+                    <ul class="py-3 text-sm ">
+                        <li class="px-6 py-3 hover:bg-gray-50 rounded-2xl">
+                            <a href="#">Datos personales</a>
+                        </li>
+                        <li class="px-6 py-3 hover:bg-gray-50 rounded-2xl">
+                            <a href="#">Cambiar contraseña</a>
+                        </li>
+                        <li class="px-6 py-3 text-red-500 mt-2 border-t border-gray-100 pt-4 rounded-b-2xl">Cerrar sesión</li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <main class="p-4 pb-32 lg:p-10 lg:grid lg:grid-cols-12 lg:gap-10 lg:max-w-6xl mx-auto">
+            
+            <div class="lg:col-span-5 space-y-8">
+                <div class="bg-ticket rounded-[3rem] p-8 lg:p-12 card-shadow text-center relative overflow-hidden">
+                    <h2 class="mt-10 text-gray-400 text-[10px] lg:text-[11px] font-black uppercase tracking-[0.2em] mb-4">Saldo a enero 2026</h2>
+                    <p class="text-6xl lg:text-7xl font-black text-gray-900 mb-6 tracking-tighter">$550.000</p>
+                    <div class="mb-10"><a href="liquidaciones2.html" class="text-[10px] font-bold text-pwa-purple underline underline-offset-4 decoration-2">Ver liquidación completa</a></div>
+                    
+                    <div class="grid grid-cols-3 gap-4 lg:max-w-sm lg:mx-auto">
+                        <div class="space-y-2">
+                            <button class="w-full aspect-square bg-gray-50 rounded-2xl flex items-center justify-center text-pwa-purple hover:bg-purple-50 transition-colors"  aria-label="Copiar CBU"><i class="fa-solid fa-copy text-2xl"></i></button>
+                            <p class="text-[9px] font-black text-gray-400 uppercase tracking-tighter">Copiar CBU</p>
+                        </div>
+                        <div class="space-y-2">
+                            <button class="w-full aspect-square bg-gray-50 rounded-2xl flex items-center justify-center text-pwa-purple hover:bg-purple-50 transition-colors"  aria-label="Detalle expensa"><i class="fa-solid fa-file-invoice-dollar text-2xl"></i></button>
+                            <p class="text-[9px] font-black text-gray-400 uppercase tracking-tighter">Expensa</p>
+                        </div>
+                        <div class="space-y-2">
+                            <button class="w-full aspect-square bg-pwa-purple rounded-2xl flex items-center justify-center text-white shadow-xl shadow-purple-100 hover:scale-105 active:scale-95 transition-all" aria-label="Informar pago"><i class="fa-solid fa-upload text-2xl"></i></button>
+                            <p class="text-[9px] font-black text-pwa-purple uppercase tracking-tighter">Ya pagué</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lg:col-span-7 mt-10 lg:mt-0 space-y-6">
+                <div class="flex justify-between items-center px-4">
+                    <h3 class="font-black text-xl tracking-tight ">Mis Reservas</h3>
+                     <button onclick="navigateTo('nueva_reserva.html')" class="bg-pwa-purple text-white px-4 py-1 rounded-full text-[10px] font-bold tracking-widest shadow-lg shadow-purple-100" aria-label="Nueva reserva">
+            Nueva reserva +
+        </button>
+                </div>
+
+                <div class="bg-white rounded-[2.5rem] p-6 flex items-center card-shadow border border-white">
+                    <div class="bg-pwa-purple text-white rounded-2xl w-20 h-20 flex flex-col items-center justify-center mr-5 shrink-0 shadow-lg shadow-purple-50">
+                        <span class="text-3xl font-bold leading-none uppercase">17</span>
+                        <span class="text-[10px] font-bold uppercase">FEB</span>
+                    </div>
+                    <div class="flex-1">
+                        <p class="font-black text-sm text-gray-800 leading-tight tracking-tight">Padel | Cancha 2</p>
+                        <p class="text-[11px] font-bold text-gray-400 mt-1">18:00 - 19:30hs</p>
+                        <button class="text-pwa-purple text-[10px] font-bold  mt-3 flex items-center gap-1 group">
+                            Modificar <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                    </div>
+                </div>
+
+
+                
+                <div class="space-y-4">
+                    <h3 class="font-black text-xl tracking-tight px-4 ">Comunicaciones</h3>
+                    <div class="bg-white rounded-[2.5rem] p-6 card-shadow border border-white hover:border-purple-200 transition-colors">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="bg-purple-50 text-pwa-purple text-[9px] font-black px-4 py-1.5 rounded-full">01/03/2026</span>
+                            <i class="fa-solid fa-circle text-[8px] text-pwa-purple"></i>
+                        </div>
+                        <h4 class="font-bold text-base text-gray-900 leading-tight">Ya están disponibles las expensas de enero</h4>
+                        <p class="text-xs text-gray-500 mt-2 leading-relaxed">Podés descargar el detalle y copiar el CBU directamente desde el acceso rápido de arriba.</p>
+                    </div>
+
+                     <div class="bg-white rounded-[2rem] p-5 card-shadow space-y-4">
+                        <div>
+                            <span class="bg-purple-50 text-pwa-purple text-[9px] font-black px-4 py-1.5 rounded-full">15/12/2025</span>
+                            <h4 class="font-bold mt-1">Votación: Medidores de velocidad en las calles internas</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => { document.body.classList.add("page-loaded"); }, 50);
+        });
+
+        function navigateTo(url) {
+            document.body.style.opacity = "0";
+            setTimeout(() => { window.location.href = url; }, 400);
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+</body>
+</html>

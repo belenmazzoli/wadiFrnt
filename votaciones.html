@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wadi BC</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.5.1/css/all.css">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+
+    
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="responsive.css">
+</head>
+<body class="lg:flex lg:flex-row">
+
+    <nav class="fixed bottom-0 lg:top-0 lg:left-0 lg:h-full lg:w-[100px] left-0 z-50 w-full h-[90px] bg-white border-t lg:border-t-0 lg:border-r border-gray-100 pb-[env(safe-area-inset-bottom)] lg:pb-0 shadow-[0_-5px_20px_rgba(0,0,0,0.05)] lg:flex lg:flex-col lg:items-center lg:py-10">
+        <div class="grid h-full lg:h-auto w-full grid-cols-5 lg:grid-cols-1 lg:flex lg:flex-col lg:gap-10 max-w-md mx-auto">
+            <button onclick="navigateTo('index.html')" class="nav-tooltip flex flex-col items-center justify-center group" data-title="Novedades">
+                <i class="fa-solid fa-house text-xl text-gray-300 group-hover:text-pwa-purple "></i>
+                <span class="text-[9px] font-black uppercase mt-2 lg:hidden text-gray-300 group-hover:text-pwa-purple">Inicio</span>
+            </button>
+
+            <button onclick="navigateTo('mi_unidad.html')" class="nav-tooltip flex flex-col items-center justify-center group" data-title="Mi Unidad">
+                <i class="fa-solid fa-family text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
+                <span class="text-[9px] font-black uppercase mt-2 lg:hidden text-gray-300 group-hover:text-pwa-purple">Unidad</span>
+            </button>
+
+            <button onclick="navigateTo('mis_reservas.html')" class="nav-tooltip flex flex-col items-center justify-center group" data-title="Reservas">
+                <i class="fa-solid fa-calendar-check text-xl  text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
+                <span class="text-[9px] font-black uppercase mt-2 lg:hidden  ">Reservas</span>
+            </button>
+
+            <button onclick="navigateTo('comunicaciones.html')" class="nav-tooltip flex flex-col items-center justify-center group" data-title="Comunicaciones">
+                <i class="fa-solid fa-mailbox text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
+                <span class="text-[9px] font-black uppercase mt-2 lg:hidden text-gray-300 group-hover:text-pwa-purple">Mensajes</span>
+            </button>
+
+            <button class="flex flex-col items-center justify-center group lg:hidden">
+                <i class="fa-solid fa-circle-ellipsis text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
+                <span class="text-[9px] font-black uppercase mt-2 text-gray-300 group-hover:text-pwa-purple">Más</span>
+            </button>
+
+            <button aria-label="Votaciones" onclick="navigateTo('votaciones.html')" class="nav-tooltip hidden lg:flex flex-col items-center justify-center group" data-title="Votaciones">
+                <i class="fa-solid fa-check-to-slot text-xl text-pwa-purple "></i>
+            </button>
+
+           
+             <button onclick="navigateTo('reclamos.html')" class="nav-tooltip hidden lg:flex flex-col items-center justify-center group" data-title="Reclamos"  aria-label="Reclamos">
+                <i class="fa-solid fa-comment-captions text-xl text-gray-300 group-hover:text-pwa-purple transition-colors transition-colors"></i>
+            </button>
+             <button onclick="navigateTo('documentacion.html')" class="nav-tooltip hidden lg:flex flex-col items-center justify-center group" data-title="Documentación" aria-label="Documentación">
+                <i class="fa-solid fa-file text-xl text-gray-300 group-hover:text-pwa-purple  group-hover:text-pwa-purple transition-colors"></i>
+            </button>
+
+             <button onclick="navigateTo('faqs.html')" class="nav-tooltip hidden lg:flex flex-col items-center justify-center group" data-title="Preguntas Frecuentes" aria-label="Preguntas frecuentes">
+                <i class="fa-solid fa-circle-question text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div class="flex-1 lg:ml-[100px]">
+        
+        <header class="p-4 flex justify-between items-center max-w-md lg:max-w-6xl mx-auto  sticky top-0 bg-[#F3F4F6]/80 backdrop-blur-md z-40">
+            <div class="flex items-center gap-4">
+                <button data-dropdown-toggle="dropdownGuardia" aria-label="Contactos de la Guardia" class="bg-white p-3 rounded-2xl shadow-sm lg:hidden"><i class="fa-solid fa-shield-quartered text-pwa-purple"></i></button>
+                <div class="hidden lg:flex ">
+                    <button  data-dropdown-toggle="dropdownGuardia" class="lg:flex items-center gap-3">
+
+                    <i class="fa-solid fa-shield-quartered text-2xl text-pwa-purple"></i>
+                    <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Contactos guardia</span>
+                    </button>
+                </div>
+                 <div id="dropdownGuardia" class="z-10 hidden bg-white p-6 rounded-[2.5rem] shadow-2xl w-72 border border-gray-50">
+                    <ul class="py-3 text-sm ">
+                        <li class="px-6 py-3 hover:bg-gray-50 rounded-2xl">
+                            <a href="#" aria-label="Llamar a la guardia del barrio">0800-GUARDIA</a>
+                        </li>
+                        <li class="px-6 py-3 hover:bg-gray-50 rounded-2xl">
+                            <a href="#" aria-label="Comunicarme por whatsapp">WhatsApp</a>
+                        </li>
+                        
+                        <li class="px-6 py-3 hover:bg-gray-50 rounded-2xl">
+                            <a href="#" aria-label="Enviar un mail a la guardia">administracion@gmail.com</a>
+                        </li>
+                    </ul>
+                    <hr class="border-gray-100">
+                    <p class="text-xs text-gray-500 p-4 leading-relaxed text-center ">Horario tel: 6hs a 23hs<br>WhatsApp 24hs</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <button id="loteBtn" data-dropdown-toggle="dropdownLote" class="bg-pwa-purple text-white px-5 py-2.5 rounded-full font-black text-[11px] shadow-lg shadow-purple-100 flex items-center gap-2">
+                    LT 128 <i class="fa-solid fa-chevron-down text-[8px]"></i>
+                </button>
+
+                <div id="dropdownLote" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-3xl shadow-2xl w-40 overflow-hidden border border-gray-50">
+                    <ul class="py-2 text-sm font-bold">
+                        <li class="px-5 py-3 hover:bg-gray-50 text-gray-400">LOT127</li>
+                        <li class="px-5 py-3 bg-pwa-purple text-white">LT128</li>
+                        <li class="px-5 py-3 hover:bg-gray-50 text-gray-400">LOT129</li>
+                    </ul>
+                </div>
+
+
+
+                <button data-dropdown-toggle="dropdownUser" aria-label="Información del usuario"class="text-pwa-purple bg-white p-2.5 rounded-full shadow-sm lg:flex lg:items-center lg:gap-3 lg:px-4">
+                    <i class="fa-solid fa-circle-user text-2xl"></i>
+                    <span class="hidden lg:block text-xs font-black text-gray-900 uppercase">C. Solana</span>
+                </button>
+                 <div id="dropdownUser" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-[2.5rem] shadow-2xl w-60 p-2 border border-gray-50">
+                    <ul class="py-3 text-sm ">
+                        <li class="px-6 py-3 hover:bg-gray-50 rounded-2xl">
+                            <a href="#">Datos personales</a>
+                        </li>
+                        <li class="px-6 py-3 hover:bg-gray-50 rounded-2xl">
+                            <a href="#">Cambiar contraseña</a>
+                        </li>
+                        <li class="px-6 py-3 text-red-500 mt-2 border-t border-gray-100 pt-4 rounded-b-2xl">Cerrar sesión</li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+
+<main class="p-4 lg:p-12 max-w-md lg:max-w-7xl mx-auto lg:grid lg:grid-cols-12 lg:gap-12 lg:items-start">
+    
+    <section class="lg:col-span-5 space-y-4" id="accordion-votaciones" data-accordion="collapse">
+        <h1 class="text-2xl font-black text-gray-900 px-4 mb-6 italic tracking-tight">Votaciones</h1>
+
+        <div class="bg-white rounded-[2.5rem] card-shadow overflow-hidden border-2 border-transparent transition-all">
+            <h2 id="heading-voto-1">
+                <button type="button" 
+                        class="flex items-center justify-between w-full p-6 text-left group" 
+                        data-accordion-target="#body-voto-1" 
+                        onclick="showVotacionContent('body-voto-1', this)">
+                    <div class="flex flex-col gap-4">
+                       
+                            <div class="flex items-center gap-2 mb-1">
+                                <span id="status" class="bg-green-100 text-green-600 text-[8px] font-black uppercase px-2 py-0.5 rounded">Activa</span>
+                                <span class="text-[9px] font-black text-pwa-purple uppercase">Cierra en 2 días</span>
+                            </div>
+                        <div>
+                            <h3 class="font-bold text-sm text-gray-900 leading-tight mt-1">Color de pintura Club House</h3>
+                        </div>
+                    </div>
+                    <i data-accordion-icon class="fa-solid fa-chevron-down text-xs text-gray-300 lg:hidden"></i>
+                    <i class="fa-solid fa-arrow-right text-xs text-gray-300 hidden lg:block group-hover:text-pwa-purple group-hover:translate-x-1 transition-all"></i>
+                </button>
+            </h2>
+            <div id="body-voto-1" class="hidden lg:!hidden">
+                <div class="p-6 pt-0 border-t border-gray-50 mt-2">
+                    <p class="text-xs text-gray-600 mb-6 leading-relaxed italic">¿De qué color le gustaría que pintaramos el Club House?</p>
+                    
+                    <form class="space-y-3">
+                        <label class="flex items-center p-4 bg-gray-50 rounded-2xl cursor-pointer border border-transparent hover:border-purple-100 transition-all">
+                            <input type="radio" name="color" value="beige" class="w-4 h-4 text-pwa-purple bg-white border-gray-300 focus:ring-pwa-purple focus:ring-2">
+                            <span class="ml-3 text-sm font-bold text-gray-700">Beige Arena</span>
+                        </label>
+                        <label class="flex items-center p-4 bg-gray-50 rounded-2xl cursor-pointer border border-transparent hover:border-purple-100 transition-all">
+                            <input type="radio" name="color" value="gris" class="w-4 h-4 text-pwa-purple bg-white border-gray-300 focus:ring-pwa-purple focus:ring-2">
+                            <span class="ml-3 text-sm font-bold text-gray-700">Gris Cemento</span>
+                        </label>
+                        <label class="flex items-center p-4 bg-gray-50 rounded-2xl cursor-pointer border border-transparent hover:border-purple-100 transition-all">
+                            <input type="radio" name="color" value="blanco" class="w-4 h-4 text-pwa-purple bg-white border-gray-300 focus:ring-pwa-purple focus:ring-2">
+                            <span class="ml-3 text-sm font-bold text-gray-700">Blanco Tiza</span>
+                        </label>
+
+                        <button type="submit" class="w-full bg-pwa-purple text-white py-4 rounded-2xl text-[11px] font-black uppercase tracking-widest mt-4 shadow-lg shadow-purple-50">
+                            Enviar Voto
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+         <div class="bg-white rounded-[2.5rem] card-shadow overflow-hidden border-2 border-transparent opacity-90">
+            <h2 id="heading-voto-2">
+                <button type="button" class="flex items-center justify-between w-full p-6 text-left group" 
+                        data-accordion-target="#body-voto-2" 
+                        onclick="showVotacionContent('body-voto-2', this)">
+                    <div class="flex items-center gap-4">
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span id="status" class="bg-gray-100 text-gray-400 text-[8px] font-black uppercase px-2 py-0.5 rounded">Finalizada</span>
+                                <span class="text-[9px] font-black text-gray-400 uppercase">Enero 2026</span>
+                            </div>
+                            <h3 class="font-bold text-sm text-gray-800">Recambio de luminarias LED</h3>
+                        </div>
+                    </div>
+                    <i data-accordion-icon class="fa-solid fa-chevron-down text-xs text-gray-300 lg:hidden"></i>
+                    <i class="fa-solid fa-arrow-right text-xs text-gray-300 hidden lg:block group-hover:text-pwa-purple group-hover:translate-x-1 transition-all"></i>
+                </button>
+            </h2>
+            <div id="body-voto-2" class="hidden lg:!hidden" aria-labelledby="heading-vot0-2">
+                <div class="p-6 pt-0 border-t border-gray-50 mt-2 space-y-5">
+                    
+                    <p class="text-[10px] font-black text-pwa-purple uppercase tracking-tight">Tu elección: A favor</p>
+
+                    <div class="space-y-4">
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-[10px] font-black uppercase tracking-tighter">
+                                <span class="text-gray-700">A favor</span>
+                                <span class="text-pwa-purple">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-100 rounded-full h-2">
+                                <div class="bg-pwa-purple h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <div class="flex justify-between text-[10px] font-black uppercase tracking-tighter">
+                                <span class="text-gray-700">En contra</span>
+                                <span class="text-gray-400">25%</span>
+                            </div>
+                            <div class="w-full bg-gray-100 rounded-full h-2">
+                                <div class="bg-gray-300 h-2 rounded-full" style="width: 25%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded-2xl text-center">
+                        <p class="text-[10px] text-gray-400 font-bold">Votación cerrada por la administración el 15/01/2026</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="lg:col-span-7 hidden lg:block sticky top-32">
+        <div class="bg-white rounded-[3.5rem] card-shadow p-12 border border-white min-h-[550px] flex flex-col">
+            <div id="voto-placeholder" class="flex-1 flex flex-col items-center justify-center text-center">
+                <div class="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center text-gray-200 mb-4">
+                    <i class="fa-solid fa-check-to-slot text-3xl"></i>
+                </div>
+                <p class="text-gray-400 font-bold text-sm">Seleccioná una votación activa<br>para emitir tu opinión</p>
+            </div>
+
+            <div id="voto-content-area" class="hidden animate-fade-in">
+                <span id="viewer-status" class="text-[10px] font-black text-pwa-purple uppercase tracking-[0.2em] mb-4 block">Votación en curso</span>
+                <h2 id="viewer-title" class="text-2xl font-bold text-gray-900 mb-2 leading-tight"></h2>
+                <div class="h-px bg-gray-50 w-full mb-4"></div>
+                <div id="viewer-body"></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+        
+</div>
+
+<script>
+   function showVotacionContent(sourceId, element) {
+    if (window.innerWidth >= 1024) {
+        const placeholder = document.getElementById('voto-placeholder');
+        const contentArea = document.getElementById('voto-content-area');
+        const viewerTitle = document.getElementById('viewer-title');
+        const viewerBody = document.getElementById('viewer-body');
+        const viewerStatus = document.getElementById('viewer-status'); // Seleccionamos el span del visor
+
+        // 1. Extraemos el título y el estado del botón clickeado
+        const titleText = element.querySelector('h3').innerText;
+        const statusText = element.querySelector('#status').innerText; // Extraemos el texto del badge (Activa/Finalizada)
+        
+        const sourceContainer = document.getElementById(sourceId);
+        const contentDiv = sourceContainer.querySelector('.p-6');
+        
+        if (contentDiv) {
+            const innerHTML = contentDiv.innerHTML;
+
+            placeholder.classList.add('hidden');
+            contentArea.classList.remove('hidden');
+            
+            // 2. Actualizamos el contenido dinámico del visor
+            viewerTitle.innerText = titleText;
+            viewerStatus.innerText = statusText; // Sincronizamos el estado
+            viewerBody.innerHTML = innerHTML;
+
+            // 3. Limpiamos clases 'hidden' del contenido clonado
+            viewerBody.querySelectorAll('.hidden').forEach(el => el.classList.remove('hidden'));
+
+            if (typeof initFlowbite === 'function') {
+                initFlowbite();
+            }
+
+            // 4. Lógica de selección visual mejorada
+            const allCards = document.querySelectorAll('#accordion-votaciones > div');
+            allCards.forEach(card => {
+                card.classList.remove('border-pwa-purple', 'bg-purple-50/30', 'ring-1', 'ring-pwa-purple/20');
+                card.classList.add('bg-white');
+                card.style.borderColor = 'transparent';
+            });
+
+            const activeCard = element.closest('.bg-white');
+            if (activeCard) {
+                activeCard.classList.remove('bg-white');
+                activeCard.classList.add('bg-purple-50/30', 'border-pwa-purple', 'ring-1', 'ring-pwa-purple/20');
+                activeCard.style.borderColor = '#A855F7';
+            }
+        }
+    }
+}
+</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            setTimeout(() => { document.body.classList.add("page-loaded"); }, 50);
+        });
+
+        function navigateTo(url) {
+            document.body.style.opacity = "0";
+            setTimeout(() => { window.location.href = url; }, 400);
+        }
+    </script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+</body>
+</html>
