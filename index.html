@@ -23,14 +23,14 @@
 
     <nav class="fixed bottom-0 lg:top-0 lg:left-0 lg:h-full lg:w-[100px] left-0 z-50 w-full h-[90px] bg-white border-t lg:border-t-0 lg:border-r border-gray-100 pb-[env(safe-area-inset-bottom)] lg:pb-0 shadow-[0_-5px_20px_rgba(0,0,0,0.05)] lg:flex lg:flex-col lg:items-center lg:py-10">
         <div class="grid h-full lg:h-auto w-full grid-cols-5 lg:grid-cols-1 lg:flex lg:flex-col lg:gap-10 max-w-md mx-auto">
-            <button onclick="navigateTo('index.html')" class="nav-tooltip flex flex-col items-center justify-center group" data-title="Novedades">
+            <button onclick="navigateTo('index.html')" class="nav-tooltip flex flex-col items-center justify-center group" data-title="Inicio">
                 <i class="fa-solid fa-house text-xl text-pwa-purple"></i>
                 <span class="text-[9px] font-black uppercase mt-2 lg:hidden text-pwa-purple">Inicio</span>
             </button>
 
-            <button onclick="navigateTo('mi_unidad.html')" class="nav-tooltip flex flex-col items-center justify-center group" data-title="Mi Unidad">
-                <i class="fa-solid fa-family text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
-                <span class="text-[9px] font-black uppercase mt-2 lg:hidden text-gray-300 group-hover:text-pwa-purple">Unidad</span>
+            <button onclick="navigateTo('finanzas.html')" class="nav-tooltip flex flex-col items-center justify-center group" data-title="Expensas">
+                <i class="fa-solid fa-badge-dollar text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
+                <span class="text-[9px] font-black uppercase mt-2 lg:hidden text-gray-300 group-hover:text-pwa-purple">Expensas</span>
             </button>
 
             <button onclick="navigateTo('mis_reservas.html')" class="nav-tooltip flex flex-col items-center justify-center group" data-title="Reservas">
@@ -63,8 +63,15 @@
                 <li class="px-8 py-4 hover:bg-gray-50 rounded-2xl">
                     <a href="faqs.html"  aria-label="Preguntas frecuentas">Preguntas frecuentes</a>
                 </li>
+                <li class="px-8 py-4 hover:bg-gray-50 rounded-2xl">
+                    <a href="mi_unidad.html"  aria-label="Preguntas frecuentas">Empadronamiento</a>
+                </li>
             </ul>
         </div>
+
+            <button onclick="navigateTo('mi_unidad.html')" class="nav-tooltip flex flex-col items-center justify-center group" data-title="Empadronamiento">
+                <i class="fa-solid fa-family text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
+            </button>
 
             <button aria-label="Votaciones" onclick="navigateTo('votaciones.html')" class="nav-tooltip hidden lg:flex flex-col items-center justify-center group" data-title="Votaciones">
                 <i class="fa-solid fa-check-to-slot text-xl text-gray-300 group-hover:text-pwa-purple transition-colors"></i>
